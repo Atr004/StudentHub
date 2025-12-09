@@ -77,3 +77,9 @@ export const getProfile = async (req, res, next) => {
     user,
   });
 };
+
+export const getAllUsers = async (req, res, next) => {
+  const users = await User.find().select("-password");
+  res.status(200).json({ success: true, users });
+};
+
